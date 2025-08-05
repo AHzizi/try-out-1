@@ -46,7 +46,7 @@ export const questions: Question[] =[
       "Adanya pengakuan hak asasi manusia yang dituangkan dalam UUD negara dan partisipasi pemerintah.",
       "Adanya UUD negara dan partisipasi masyarakat terhadap kebijakan pemerintah."
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Sebuah negara demokrasi harus memiliki konstitusi atau UUD sebagai dasar hukum dan menjamin adanya partisipasi aktif dari masyarakat dalam pemerintahan."
   },
   {
@@ -94,7 +94,7 @@ export const questions: Question[] =[
       "Norma",
       "Berfikir"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": 0,
     "explanation": "Norma adalah perwujudan dari kesadaran manusia berakal budi yang mengatur harkat dan martabatnya dalam kehidupan bermasyarakat."
   },
   {
@@ -142,7 +142,7 @@ export const questions: Question[] =[
       "Budaya Gotong Royong.",
       "Kitab Tripakara."
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "Unsur-unsur Pancasila, terutama semboyan Bhinneka Tunggal Ika, telah ada dalam Kitab Sutasoma karya Mpu Tantular jauh sebelum kemerdekaan."
   },
   {
@@ -406,7 +406,7 @@ export const questions: Question[] =[
       "3-2-1-4",
       "4-2-1-3"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": 1,
     "explanation": "Susunan pantun yang benar adalah 3-2-1-4, di mana baris ketiga dan keempat merupakan isi, sedangkan baris pertama dan kedua merupakan sampiran, dengan rima a-b-a-b."
   },
   {
@@ -430,7 +430,7 @@ export const questions: Question[] =[
       "Yth. Sdr. Kepala SMU BPI 3 Jalan Burangrang 8 Bandung",
       "Yth. Bapak Kepala SMU BPI 3 Jalan Burangrang 8, Bandung."
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "Penulisan alamat surat yang benar adalah menggunakan singkatan 'Yth.' dan nama tujuan yang lengkap, tanpa tambahan sapaan 'Sdr.' atau 'Bapak', dan nama kota ditulis dengan huruf kapital."
   },
   {
@@ -466,7 +466,7 @@ export const questions: Question[] =[
       "Saya masih sangsi kalau mereka menerima sanksi tersebut",
       "Warga bumiroso banyak yang tahu cara membuat tahu"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "explanation": "Homonim adalah kata yang memiliki tulisan dan pelafalan yang sama, namun maknanya berbeda. 'Bang' (sapaan) dan 'Bank' (lembaga keuangan) memiliki pelafalan yang sama tetapi ejaan berbeda."
   },
   {
