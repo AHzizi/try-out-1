@@ -958,7 +958,7 @@ export const questions: Question[] =[
       "4000 jiwa atau 800 Kepala Keluarga.",
       "3000 jiwa atau 600 Kepala Keluarga."
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "Syarat jumlah penduduk minimal untuk pembentukan desa di wilayah Sulawesi Selatan adalah 5000 jiwa atau 1000 Kepala Keluarga."
   },
   {
@@ -1042,7 +1042,7 @@ export const questions: Question[] =[
       "Jumlah penduduk dan potensi wilayah.",
       "Jumlah penduduk dan tingkat kesejahteraan warga desa."
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Jumlah anggota BPD ditetapkan berdasarkan jumlah penduduk dan luas wilayah desa."
   },
   {
@@ -1066,7 +1066,7 @@ export const questions: Question[] =[
       "Laporan Penyelenggaraan Pemerintahan Desa Akhir Tahun Anggaran.",
       "Laporan Anggaran Pendapatan dan Belanja Desa."
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "Laporan yang diberikan Kepala Desa pada akhir tahun anggaran adalah Laporan Keterangan Penyelenggaraan Pemerintahan Desa (LKPPD) Akhir Tahun Anggaran."
   },
   {
@@ -1078,7 +1078,7 @@ export const questions: Question[] =[
       "Bupati mengangkat Pegawai Negeri Sipil dari Pemerintah Daerah sebagai penjabat Kepala Desa sampai terpilihnya Kepala Desa yang baru.",
       "Mengangkat Sekretaris Desa menjadi pelaksana tugas Kepala Desa sampai berakhir masa janatan Kepala Desa yang dimaksud."
     ],
-    "correctAnswer": 2,
+    "correctAnswer": 1,
     "explanation": "Jika Kepala Desa meninggal dunia, Bupati akan mengangkat Pegawai Negeri Sipil (PNS) sebagai penjabat Kepala Desa sampai terpilihnya Kepala Desa yang baru melalui pemilihan."
   },
   {
@@ -1102,7 +1102,7 @@ export const questions: Question[] =[
       "Peraturan Desa.",
       "Peraturan Daerah."
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Eksistensi dan tata kerja Lembaga Kemasyarakatan Desa ditetapkan dengan Peraturan Kepala Desa."
   },
   {
@@ -1256,9 +1256,9 @@ export const questions: Question[] =[
         "27 provinsi.",
         "30 provinsi.",
         "33 provinsi.",
-        "35 provinsi."
+        "38 provinsi."
       ],
-      "correctAnswer": 2,
+      "correctAnswer": 3,
       "explanation": "Jumlah provinsi di Indonesia telah mengalami perubahan. Saat ini jumlahnya adalah 38 provinsi, namun 33 provinsi pernah menjadi jumlah provinsi yang valid di masa lalu."
     },
     {
@@ -1318,7 +1318,7 @@ export const questions: Question[] =[
         "27 Mei",
         "7 Juni"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": 1,
       "explanation": "Hari Desa Nasional diperingati setiap tanggal 15 Januari, namun opsi terdekat yang mungkin merujuk pada momen pembahasan UU Desa adalah 7 Mei."
     },
     {
