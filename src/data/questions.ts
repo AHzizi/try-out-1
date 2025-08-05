@@ -1,0 +1,1348 @@
+import type { Question } from '../types';
+
+// Helper function to transform questions with "pilihan" format
+function transformQuestion(q: any): Question {
+  if ('pilihan' in q) {
+    return {
+      id: q.id,
+      question: q.pertanyaan,
+      options: q.pilihan,
+      correctAnswer: q.jawaban,
+      explanation: q.penjelasan
+    };
+  }
+  if ('soal' in q) {
+    return {
+      id: q.id,
+      question: q.soal,
+      options: q.pilihan,
+      correctAnswer: q.jawaban,
+      explanation: ''
+    };
+  }
+  return q;
+}
+
+// All questions combined and transformed
+export const questions: Question[] =[
+  {
+    "id": 1,
+    "question": "“Negara Indonesia ialah Negara Kesatuan yang Berbentuk Republik”. Pernyataan diatas sesuai dengan isi dari ….",
+    "options": [
+      "Pasal 1 ayat 1 UUD 1945.",
+      "Pasal 1 ayat 2 UUD 1945.",
+      "Pasal 2 ayat 1 UUD 1945.",
+      "Pasal 2 ayat 2 UUD 1945."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Pasal 1 ayat 1 UUD 1945 secara tegas menyatakan bahwa negara Indonesia adalah negara kesatuan yang berbentuk republik, yang menjadi dasar bentuk negara Indonesia."
+  },
+  {
+    "id": 2,
+    "question": "Suatu negara dapat disebut sebagai negara demokrasi apabila memiliki dua asas, yaitu,…",
+    "options": [
+      "Adanya Undang Undang dan kelengkapan negara.",
+      "Adanya pengakuan hak asasi manusia dan alat-alat kelengkapan negara.",
+      "Adanya pengakuan hak asasi manusia yang dituangkan dalam UUD negara dan partisipasi pemerintah.",
+      "Adanya UUD negara dan partisipasi masyarakat terhadap kebijakan pemerintah."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Sebuah negara demokrasi harus memiliki konstitusi atau UUD sebagai dasar hukum dan menjamin adanya partisipasi aktif dari masyarakat dalam pemerintahan."
+  },
+  {
+    "id": 3,
+    "question": "Hukum dasar dalam peraturan perundang-undangan Indonesia adalah ….",
+    "options": [
+      "Pancasila.",
+      "Undang-Undang Dasar 1945.",
+      "TAP MPR.",
+      "Keputusan DPR."
+    ],
+    "correctAnswer": 1,
+    "explanation": "UUD 1945 merupakan hukum dasar tertinggi yang menjadi acuan utama dalam hierarki peraturan perundang-undangan di Indonesia."
+  },
+  {
+    "id": 4,
+    "question": "Dalam sumber tata hukum di Indonesia, Pancasila dijadikan sebagai ….",
+    "options": [
+      "Sumber dari segala sumber hukum.",
+      "Hukum tertinggi di Indonesia.",
+      "Hukum tertulis tertinggi di Indonesia.",
+      "Setingkat dengan UUD 1945."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Pancasila memiliki kedudukan sebagai sumber dari segala sumber hukum, yang berarti setiap peraturan perundang-undangan di Indonesia tidak boleh bertentangan dengan nilai-nilai Pancasila."
+  },
+  {
+    "id": 5,
+    "question": "Pancasila sebagai way of life dalam kehidupan bermasyarakat, berbangsa, dan bernegara. Dalam konteks ini Pancasila memiliki makna sebagai ….",
+    "options": [
+      "Karakteristik bangsa.",
+      "Nilai-nilai kebangsaan.",
+      "Kepribadian bangsa.",
+      "Pedoman hidup."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Pancasila sebagai 'way of life' atau pandangan hidup bangsa berfungsi sebagai pedoman hidup untuk mengatur perilaku dan sikap masyarakat Indonesia."
+  },
+  {
+    "id": 6,
+    "question": "Perwujudan kesadaran manusia sebagai makhluk berakal budi yang menunjukan harkat dan martabatnya, dan dengan tingkat kesadaran inilah maka harkat dan martabat manusia tetap luhur atau sebaliknya. Perwujudan kesadaran tersebut adalah bentuk ….",
+    "options": [
+      "Konsep hidup",
+      "Akal budi",
+      "Norma",
+      "Berfikir"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Norma adalah perwujudan dari kesadaran manusia berakal budi yang mengatur harkat dan martabatnya dalam kehidupan bermasyarakat."
+  },
+  {
+    "id": 7,
+    "question": "Demokrasi di Indonesia berdasarkan Demokrasi Pancasila yang mempunyai makna sebuah demokrasi yang dijiwai ….",
+    "options": [
+      "Semangat kepartaian",
+      "Nilai-nilai Pancasila sebagai satu kesatuan",
+      "Kepribadian bangsa Indonesia",
+      "Semangat Pancasila"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Demokrasi Pancasila adalah sistem demokrasi yang dijiwai dan dilandasi oleh nilai-nilai Pancasila sebagai satu kesatuan utuh."
+  },
+  {
+    "id": 8,
+    "question": "Rumusan Pancasila yang resmi terdapat dalam ….",
+    "options": [
+      "Proklamasi 17 Agustus 1945.",
+      "Pembukaan UUD 1945.",
+      "Pidato Bung Karno.",
+      "Piagam Jakarta."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Rumusan Pancasila yang sah dan resmi sebagai dasar negara terdapat dalam Pembukaan Undang-Undang Dasar Negara Republik Indonesia Tahun 1945."
+  },
+  {
+    "id": 9,
+    "question": "Secara formal Pancasila disahkan sebagai dasar negara republik Indonesia pada tanggal….",
+    "options": [
+      "17 Agustus 1945.",
+      "18 Agustus 1945.",
+      "19 Agustus 1945.",
+      "10 Oktober 1945."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Pancasila secara formal disahkan sebagai dasar negara oleh PPKI pada tanggal 18 Agustus 1945, sehari setelah proklamasi kemerdekaan."
+  },
+  {
+    "id": 10,
+    "question": "Sebelum secara resmi disahkan pada tahun 1945 sebagai dasar filsafat negara, unsur-unsur Pancasila telah dimiliki dan telah melekat pada bangsa Indonesia sebagai asas dalam adat-istiadat, kebudayaan dan religius yang terangkum pada ...",
+    "options": [
+      "Kitab Sotasoma.",
+      "Kitab Negara Kartagama.",
+      "Budaya Gotong Royong.",
+      "Kitab Tripakara."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Unsur-unsur Pancasila, terutama semboyan Bhinneka Tunggal Ika, telah ada dalam Kitab Sutasoma karya Mpu Tantular jauh sebelum kemerdekaan."
+  },
+  {
+    "id": 11,
+    "question": "Sila kemanusiaan yang adil dan beradab dilambangkan dengan simbol ....",
+    "options": [
+      "Rantai melingkar.",
+      "Pohon Beringin.",
+      "Bintang.",
+      "Padi dan kapas."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Simbol rantai melingkar pada lambang Garuda Pancasila melambangkan sila kedua, 'Kemanusiaan yang Adil dan Beradab'."
+  },
+  {
+    "id": 12,
+    "question": "Keseluruhan cara hidup masyarakat yang perwujudannya tampak pada tingkah laku para anggotanya disebut dengan….",
+    "options": [
+      "Kepercayaan.",
+      "Kebudayaan.",
+      "Ideologi.",
+      "Struktur sosial."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Kebudayaan adalah keseluruhan cara hidup yang diwujudkan dalam tingkah laku, nilai, dan norma yang dianut oleh suatu masyarakat."
+  },
+  {
+    "id": 13,
+    "question": "Undang-undang Dasar 1945 dirancang oleh suatu badan yang dibentuk sebagai perwujudan janji pemerintahan Jepang tentang kemerdekaan bangsa Indonesia pada tahun 1945, dan pada tanggal 18 Agustus 1945 dilakukan pengesahan UUD 1945 oleh ….",
+    "options": [
+      "PPKI",
+      "DPR",
+      "BPUPKI",
+      "Komisi Kemerdekaan Indonesia"
+    ],
+    "correctAnswer": 0,
+    "explanation": "UUD 1945 disahkan sebagai konstitusi negara oleh Panitia Persiapan Kemerdekaan Indonesia (PPKI) pada tanggal 18 Agustus 1945."
+  },
+  {
+    "id": 14,
+    "question": "UUD 1945 berlaku sejak ditetapkan pada tanggal 18 Agustus 1945 sampai pada saat diberlakunya UUD RIS pada tanggal 27 Desember 1945 yang kemudian digantikan dengan konsep UUDS 1950. Dengan dikeluarkanya Dekrit Presiden 5 Juli 1959, Negara Indonesia kembali menggunakan UUD 1945, dan sampai saat ini sudah mengalami 4 kali amandemen. Sebutkan tanggal amandemen pertama UUD 1945.",
+    "options": [
+      "27 Desember 1945.",
+      "5 Juli 1959.",
+      "19 Oktober 1999.",
+      "18 Agustus 2001."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Amandemen pertama UUD 1945 dilakukan pada Sidang Umum MPR Tahun 1999 yang berlangsung dari tanggal 14 hingga 21 Oktober 1999."
+  },
+  {
+    "id": 15,
+    "question": "Lembaga negara pembuat Undang-Undang Dasar adalah",
+    "options": [
+      "DPR",
+      "MPR",
+      "DPD",
+      "Presiden"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Sesuai UUD 1945, Majelis Permusyawaratan Rakyat (MPR) berwenang untuk mengubah dan menetapkan Undang-Undang Dasar."
+  },
+  {
+    "id": 16,
+    "question": "Pembahasan dan pengesahan Undang-Undang merupakan tugas dan wewenang DPR, tugas tersebut biasa disebut ….",
+    "options": [
+      "Interpelasi",
+      "Hak angket",
+      "Budgeting",
+      "Legislasi"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Fungsi legislasi DPR adalah fungsi untuk membentuk undang-undang, yang mencakup pembahasan dan pengesahan UU."
+  },
+  {
+    "id": 17,
+    "question": "Yang berwenang memberikan amnesti adalah",
+    "options": [
+      "MPR",
+      "DPR",
+      "Menteri Hukum dan HAM",
+      "Presiden"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Amnesti adalah hak prerogatif Presiden untuk memberikan pengampunan terhadap hukuman yang dijatuhkan."
+  },
+  {
+    "id": 18,
+    "question": "Dibawah ini yang bukan lembaga setingkat dengan Presiden setelah amandemen UUD 1945 adalah",
+    "options": [
+      "BPK",
+      "DPD",
+      "MA",
+      "DPA"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Dewan Pertimbangan Agung (DPA) dihapus setelah amandemen UUD 1945, sedangkan BPK, DPD, dan MA adalah lembaga negara yang setingkat dengan Presiden."
+  },
+  {
+    "id": 19,
+    "question": "Dalam masa jabatanya, Presiden sebagai kepala pemerintahan memiliki tugas dan wewenang yang diatur dalam UUD 1945 antara lain ….",
+    "options": [
+      "Mengangkat dan memberhentikan Menteri",
+      "Melantik dan memberhentikan MPR",
+      "Membuat dan mengubah UUD",
+      "Mengangkat dan memberhentikan DPR"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Presiden memiliki wewenang untuk mengangkat dan memberhentikan menteri-menteri yang membantu dalam menjalankan pemerintahan."
+  },
+  {
+    "id": 20,
+    "question": "Pengawasan atas pelaksanaan undang-undang mengenai otonomi daerah, pembentukan, pemekaran, dan penggabungan daerah, hubungan pusat dan daerah, pengelolaan sumber daya alam dan sumber daya ekonomi lainya, pelaksanaan anggaran pendapatan dan belanja negara, pajak, pendidikan, dan agama serta menyampaikan hasil pengawasanya itu kepada Dewan Perwakilan Rakyat sebagai bahan untuk ditindak lanjuti merupakan salah satu tugas dan fungsi...",
+    "options": [
+      "DPRD",
+      "MPR",
+      "DPD",
+      "BPK"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Tugas dan fungsi tersebut adalah wewenang DPD (Dewan Perwakilan Daerah) yang berfokus pada kepentingan daerah."
+  },
+  {
+    "id": 21,
+    "question": "Mahkamah Konstitusi berwenang dalam melakukan pengujian terhadap undang-undang terhadap UUD. Selain kewenangan tersebut, salah satu kewenangan MK adalah ….",
+    "options": [
+      "Melakukan perubahan pada undang-undang",
+      "Memutus perselisihan atau sengketa hasil pemilihan umum",
+      "Mengusulkan pengangkatan calon Hakim Agung",
+      "Undang-undang pengganti lainya"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Salah satu kewenangan Mahkamah Konstitusi adalah mengadili pada tingkat pertama dan terakhir yang putusannya bersifat final untuk memutus sengketa hasil pemilihan umum."
+  },
+  {
+    "id": 22,
+    "question": "Peraturan Pemerintah ditetapkan oleh Presiden untuk melaksanakan ….",
+    "options": [
+      "Undang-Undang Dasar Negara Republik Indonesia tahun 1945",
+      "Perpu",
+      "Peraturan Presiden",
+      "Undang-Undang"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Peraturan Pemerintah (PP) ditetapkan oleh Presiden untuk melaksanakan undang-undang (UU) sebagaimana mestinya."
+  },
+  {
+    "id": 23,
+    "question": "Ketentuan dalam UUD 1945 yang memberikan peluang untuk melakukan perubahan terhadap UUD 1945 tertuang dalam pasal ….",
+    "options": [
+      "Pasal 37 ayat 1",
+      "Pasal 37 ayat 2",
+      "Pasal 37 ayat 3",
+      "Pasal 37 ayat 4"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Pasal 37 ayat 1 UUD 1945 mengatur bahwa usul perubahan pasal-pasal UUD dapat diagendakan dalam sidang MPR jika diajukan oleh sekurang-kurangnya 1/3 dari jumlah anggota MPR."
+  },
+  {
+    "id": 24,
+    "question": "Suatu Undang-Undang dinyatakan berakhir masa berlakunya apabila ….",
+    "options": [
+      "Ada Undang-Undang lain yang lebih baik dan menguntungkan pemerintah",
+      "Dicabut oleh Undang-Undang baru yang diusulkan oleh parpol terbesar",
+      "Dinyatakan sudah tidak berlaku oleh Presiden dan Wakil Presiden",
+      "Ditentukan dalam Undang-Undang tersebut kapan waktu berakhirnya"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Suatu undang-undang dapat berakhir masa berlakunya jika dalam undang-undang tersebut sudah ditentukan kapan waktu berakhirnya secara eksplisit."
+  },
+  {
+    "id": 25,
+    "question": "Berikut adalah tata urutan peraturan perundang-undangan yang berlaku di Indonesia",
+    "options": [
+      "UUD 1945 – UU/Perpu – Peraturan Pemerintah – Peraturan Presiden – Peraturan Daerah",
+      "UUD 1945 – Peraturan Pemerintah – UU/Perpu - Peraturan Presiden – Peraturan Daerah",
+      "UUD 1945 – UU/Perpu – Peraturan Presiden - Peraturan Pemerintah – Peraturan Daerah",
+      "UUD 1945 – Peraturan Presiden – Peraturan Pemerintah – UU/Perpu - Peraturan Daerah"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Hierarki peraturan perundang-undangan di Indonesia yang benar adalah UUD 1945, disusul oleh UU/Perpu, Peraturan Pemerintah, Peraturan Presiden, dan terakhir Peraturan Daerah."
+  },
+  {
+    "id": 26,
+    "question": "Di samping bendera dan Negara Indonesia yang kita junjung tinggi sebagai bagian dari identitas RI, bahasa Indonesia pun merupakan unsur identitas bangsa yang harus dijunjung tinggi pula. Pernyataan di atas menyatakan fungsi bahasa Indonesia sebagai…",
+    "options": [
+      "Lambang kebanggaan kebangsaan",
+      "Lambang identitas nasional",
+      "Alat pemersatu berbagai suku bangsa",
+      "Alat perhubungan antardaerah dan antarbudaya"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Pernyataan tersebut menggambarkan fungsi bahasa Indonesia sebagai lambang identitas nasional, yang membedakan bangsa Indonesia dari bangsa lain."
+  },
+  {
+    "id": 27,
+    "question": "Pada upacara-upacara resmi seperti memperingati hari ulang tahun kemerdekaan, Pembina upacara berpidato dengan menggunakan bahasa Indoneisa. Pernyataan di atas menunjukkan fungsi bahasa Indonesia sebagai…",
+    "options": [
+      "Bahasa resmi kenegaraan",
+      "Bahasa pengantar dalam dunia pendidikan",
+      "Alat kepentingan pembangunan nasional",
+      "Alat pengembangan kebudayaan"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Penggunaan bahasa Indonesia dalam upacara-upacara resmi menunjukkan fungsinya sebagai bahasa resmi kenegaraan."
+  },
+  {
+    "id": 28,
+    "question": "Lakukan ………………… alat-alat kantor agar semua terkontrol. Kata berimbuhan asing yang tepat untuk melengkapi kalimat diatas adalah ….",
+    "options": [
+      "Periodisasi",
+      "Reboisasi",
+      "Inventarisasi",
+      "Demokratisasi"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Kata 'inventarisasi' berarti pendataan atau pencatatan barang-barang secara terperinci, yang cocok untuk melengkapi kalimat tentang mengontrol alat-alat kantor."
+  },
+  {
+    "id": 29,
+    "question": "Ia selalu optimis dalam menghadapi segala masalah dan kesulitan. Kata bercetak miring bersinonim dengan kata dalam kalimat ….",
+    "options": [
+      "Saya ragu akan kemampuan tim basket kita.",
+      "Mengambil keputusan dengan pasti perlu dibiasakan.",
+      "Pekerjaan yang sulit dilaksanakan sebaiknya dihindari saja.",
+      "Saya yakin mereka mampu mengatasi masalah."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Kata 'optimis' bersinonim dengan 'yakin', yang berarti memiliki keyakinan yang kuat terhadap suatu hal."
+  },
+  {
+    "id": 30,
+    "question": "Penulisan tanggal surat yang benar adalah ….",
+    "options": [
+      "Wonosobo, 21-06-2017",
+      "Wonosobo, 21 Juni 2017.",
+      "Wonosobo, 21-Juni 2017",
+      "Wonosobo, 21 Juni 2017"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Penulisan tanggal surat yang benar sesuai kaidah Ejaan Bahasa Indonesia adalah menulis nama kota, diikuti koma, tanggal, nama bulan, dan tahun, tanpa diakhiri titik."
+  },
+  {
+    "id": 31,
+    "question": "Bacalah paragraph berikut dengan seksama. Industri jasa internet berkembang dengan sangat pesat. Perkembangan ini semakin membuka ruang bagi  investasi di bidang teknologi multimedia. …………………….. . Hal ini untuk mengantisipasi penyelenggara internet tanpa ijin merajalela. Kalimat yang tepat untuk melengkapi paragraph tersebut adalah ….",
+    "options": [
+      "Beramai-ramai investor membuka jasa internet untuk bisnis.",
+      "Namun demikian, pengembangan industri tersebut harus disertai penegakan hukum.",
+      "Perkembangan teknologi multimedia harus disertai perkembangan SDM.",
+      "Pengguna jasa internet harus komitmen terhadap pengembangan kualitas jaringan di Indonesia."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Kalimat 'Namun demikian, pengembangan industri tersebut harus disertai penegakan hukum' menjadi penghubung logis antara perkembangan pesat industri dan kebutuhan untuk mengantisipasi penyelenggara ilegal."
+  },
+  {
+    "id": 32,
+    "question": "1.  Kalau anda ingin cerdas 2.  pergi ke pasar membeli talas 3.  Sebelum makan rebus dulu 4.  Siang malam baca buku. Larik-larik kalimat acak tersebut diatas akan menjadi pantun apabila disusun dengan urutan",
+    "options": [
+      "1-4-3-2",
+      "2-3-1-4",
+      "3-2-1-4",
+      "4-2-1-3"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Susunan pantun yang benar adalah 3-2-1-4, di mana baris ketiga dan keempat merupakan isi, sedangkan baris pertama dan kedua merupakan sampiran, dengan rima a-b-a-b."
+  },
+  {
+    "id": 33,
+    "question": "..................................................... Hari, tanggal : Sabtu, 12 Juni 2017 Waktu : Pukul 19.000 s.d. 21.00 Tempat : Balai RT 07 Agenda Rapat : Pembentukan Panitia HUT RI ke 71 Atas kehadiran saudara, kami ucapkan terima kasih. Kalimat yang paling tepat untuk melengkapi titik-titik tersebut adalah ....",
+    "options": [
+      "Mengharap kehadiran Saudara pada pertemuan yang akan diselenggarakan pada",
+      "Dengan ini kami beritahukan",
+      "Bersama dengan surat ini kami sampaikan bahwa pada",
+      "Dengan hormat, kami beritahukan bahwa pada"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Kalimat 'Mengharap kehadiran Saudara pada pertemuan yang akan diselenggarakan pada' adalah kalimat yang paling tepat dan lazim digunakan dalam undangan resmi."
+  },
+  {
+    "id": 34,
+    "question": "Penulisan alamat surat yang benar adalah…",
+    "options": [
+      "Yth. Kepala SMU BPI 3 Jalan Burangrang 8 BANDUNG",
+      "Yth. Sdr. Kepala SMU BPI 3 Jalan Burangrang 8",
+      "Yth. Sdr. Kepala SMU BPI 3 Jalan Burangrang 8 Bandung",
+      "Yth. Bapak Kepala SMU BPI 3 Jalan Burangrang 8, Bandung."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Penulisan alamat surat yang benar adalah menggunakan singkatan 'Yth.' dan nama tujuan yang lengkap, tanpa tambahan sapaan 'Sdr.' atau 'Bapak', dan nama kota ditulis dengan huruf kapital."
+  },
+  {
+    "id": 35,
+    "question": "Penulisan singkatan yang benar terdapat pada kalimat ....",
+    "options": [
+      "Bapak Tukijan hadir a.n. Bupati Wonosobo",
+      "Bapak Tukijan hadir a.n Bupati Wonosobo",
+      "Bapak Tukijan hadir a/n Bupati Wonosobo",
+      "Bapak Tukijan hadir a/n. Bupati Wonosobo"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Penulisan singkatan 'atas nama' yang benar adalah 'a.n.' diikuti oleh tanda titik setelah huruf 'n'."
+  },
+  {
+    "id": 36,
+    "question": "Penulisan nama gelar yang benar adalah…",
+    "options": [
+      "Prof. Dr. Surya Sumantri SH",
+      "Prof. Dr. Surya Sumantri, SH.",
+      "Prof Dr Surya Sumantri S.H.",
+      "Prof. Dr. Surya Sumantri, S.H."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Penulisan gelar yang benar menggunakan tanda titik setelah setiap singkatan gelar dan koma sebagai pemisah antara nama dan gelar."
+  },
+  {
+    "id": 37,
+    "question": "Kata-kata berhomonim dibawah ini terdapat dalam kalimat ....",
+    "options": [
+      "Bang Jayus bekerja di Bank Mandiri",
+      "Dia bisa mengatasi bisa ular itu",
+      "Saya masih sangsi kalau mereka menerima sanksi tersebut",
+      "Warga bumiroso banyak yang tahu cara membuat tahu"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Homonim adalah kata yang memiliki tulisan dan pelafalan yang sama, namun maknanya berbeda. 'Bang' (sapaan) dan 'Bank' (lembaga keuangan) memiliki pelafalan yang sama tetapi ejaan berbeda."
+  },
+  {
+    "id": 38,
+    "question": "Kata-kata berhomograf dibawah ini terdapat dalam kalimat ....",
+    "options": [
+      "Bang Jayus bekerja di Bank Mandiri",
+      "Dia bisa mengatasi bisa ular itu",
+      "Saya masih sangsi kalau mereka menerima sanksi tersebut",
+      "Warga bumiroso banyak yang tahu cara membuat tahu"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Homograf adalah kata yang memiliki tulisan yang sama tetapi lafal dan maknanya berbeda. 'Tahu' (makanan) dan 'tahu' (mengerti) memiliki tulisan yang sama."
+  },
+  {
+    "id": 39,
+    "question": "Kalimat yang bermakna denotatif dibawah ini yang benar adalah",
+    "options": [
+      "Janganlah menjadi anak yang ringan tangan",
+      "Lehernya dihiasi dengan kalung mutiara yang sangat indah",
+      "Ayah membawa buah tangan dari Surabaya",
+      "Mereka menjadi lintah darat"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Kalimat 'Lehernya dihiasi dengan kalung mutiara yang sangat indah' menggunakan makna denotatif, yaitu makna yang sebenarnya, tanpa kiasan."
+  },
+  {
+    "id": 40,
+    "question": "Penulisan kelompok kata dibawah ini yang benar adalah",
+    "options": [
+      "Swasembada",
+      "Pra sekolah",
+      "Pasca sarjana",
+      "Dayaguna"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Penulisan kata 'swasembada' adalah gabungan kata yang ditulis serangkai."
+  },
+  {
+    "id": 41,
+    "question": "Contoh kalimat efektif di bawah ini adalah…",
+    "options": [
+      "Saudara tinggal membubuhkan tanda tangan pada surat tersebut.",
+      "Saudara tinggal mencantumkan tanda tangan pada surat tersebut.",
+      "Saudara tinggal menandatangani surat tersebut.",
+      "Saudara tinggal menandatangankan surat tersebut."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Kalimat 'Saudara tinggal menandatangani surat tersebut' adalah kalimat yang paling ringkas dan efektif."
+  },
+  {
+    "id": 42,
+    "question": "Sebagian produk-produk industri dalam negeri khususnya dalam barang kebutuhan sehari-hari kurang laku dipasaran, masyarakat lebih menyukai produk luar negeri karena kualitasnya lebih baik. Kalimat yang tepat untuk mewakili pernyataan di atas adalah ….",
+    "options": [
+      "Jumlah barang yang dijual dikurangi karena barang karena barang tersebut tidak laku di pasaran",
+      "Barang-barang kebutuhan sehari-hari perlu diproduksi karena diperlukan.",
+      "Kualitas barang harus ditingkatkan karena konsumen lebih senang barang yang bermutu.",
+      "Produksi dalam negeri dijual murah karena dengan harga murah barang cepat habis."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Pernyataan di atas menyiratkan bahwa kualitas produk dalam negeri perlu ditingkatkan agar bisa bersaing dengan produk luar negeri."
+  },
+  {
+    "id": 43,
+    "question": "Pada era global, sumber daya manusia (SDM) andai merupakan kebutuham yang mendasar. Usaha untuk mendapatkan (SDM) andal dapat dilakukan melalui berbagai cara misalnya melalui penataran, pelatihan, kursus, lokakarya, seminar atau kegiatan sejenis, cara yang efektif untuk menghasilkan SDM andal yaitu melalui jalur pendidikan dengan mengikuti pendidikan tertentu. Seseorang dapat belajar berdasarkan kurikulum yang terprogaram dan hari efektif yang pasti. Simpulan tersirat dari paragraf tersebut adalah…..",
+    "options": [
+      "Pada era global, sumber daya manusia (SDM) andai merupakan kebutuham yang mendasar.",
+      "Jalur pendidikan dianggap lebih efectif untuk menghasilkan SDM andal.",
+      "SDM andal dapat dilakukan melalui berbagai cara antara cara pendidikan dan  pelatihan.",
+      "SDM yang andal menjadi kebutuhan mendasar bagi setipa negara baik negara maju dan berkembang."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Paragraf tersebut secara implisit menyimpulkan bahwa jalur pendidikan adalah cara paling efektif untuk menghasilkan SDM yang andal, meskipun ada cara lain."
+  },
+  {
+    "id": 44,
+    "question": "Kalimat yang menggunakan kata tidak baku adalah…",
+    "options": [
+      "Indonesia terus bekerja keras untuk memajukan teknologinya.",
+      "Penulis sudah mengkaji hasil penelitiannya dengan seksama.",
+      "Indonesia belum juga menemukan langkah konkret untuk mengatasi masalah pengangguran.",
+      "Untuk menjaga kedaulatannya, Indonesia menambah kuantitas Armada di Kawasan Ambalat."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Kata 'mengkaji' tidak baku, seharusnya menggunakan kata 'mengaji'."
+  },
+  {
+    "id": 45,
+    "question": "Perhatikan dengan seksama kalimat-kalimat berikut. 1. Belum banyak yang mengakui bahwa prestasi anak yang lambat belajar dapat melebihi anak berprestasi asalkan mereka diberi kesempatan belajar menurut cara mereka sendiri. 2. Sekolah hanya mengenalkan satu varisai cara belajar yaitu cara belajar yang dianggap benar dan baik oleh guru. 3. Sangat sedikit pakar pendidikan yang mengakui bahwa anak-anak yang lambat belajar dalam prestasi. 4. Sampai saat ini perhatian hanya tertuju kepada anak-anak berprestasi. Susunan yang padu paragraf tersebut adalah…..",
+    "options": [
+      "(1)-(2)-(4)-(3)",
+      "(2)-(3)-(1)-(4)",
+      "(3)-(4)-(2)-(2)",
+      "(4)-(1)-(3)-(2)"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Urutan yang paling logis adalah (4) perhatian hanya tertuju pada anak berprestasi, (1) belum banyak yang mengakui potensi anak lambat belajar, (3) sedikit pakar yang mengakui hal tersebut, dan (2) sekolah hanya mengenalkan satu cara belajar."
+  },
+  {
+    "id": 46,
+    "question": "Cermati teks pidato berikut Hadirin yang berbahagia, Bencana alam terjadi dimana-mana sehingga sangat merugikan bagi manusia dan alam sekitarnya. Kita kehilangan harta benda ataupun orang-orang yang kita sayangi. Mengapa bencana alam terjadi? Apakah karena ulah manusia sendiri yang mulai kurang peduli dengan lingkungan? Hutan digunduli tanpa perhitungan, pohon-pohon dijarah oleh manusia serakah, sampah dibuang di saluran-saluran air. Pembangunan dilakukan tanpa memperhatikan lingkungan. Kita tidak ingin bencana alam terjadi lagi .... Kalimat imbuhan untuk melengkapi teks pidato tersebut adalah ....",
+    "options": [
+      "Marilah kita jaga lingkungan kita dengan bersikap lebih bijak dan peduli terhadap alam di sekitar kita.",
+      "Jangan mengulang sikap-sikap yang tidak terpuji karena kita tidak ingin bencana terulang lagi.",
+      "Sebaiknya kita bersatu padu menjaga dan melestarikan kekayaan bangsa dan tanah air kita.",
+      "Lingkungan harus dijaga dengan baik sehingga akan memberikan manfaat kepada kita."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Kalimat penutup yang paling tepat untuk pidato tentang bencana alam akibat ulah manusia adalah ajakan untuk menjaga lingkungan dengan bijak dan peduli."
+  },
+  {
+    "id": 47,
+    "question": "Penyebab kecelakaan lalu lintas di jalan raya terutama kesalahan para pengemudi biasa kurang sabar. Mereka sering mengebut dan ingin mendahului. Mengantuk juga sering menjadi penyebab kecelakaan. Jarak yang ditempuh kendaraan terlalu jauh akan mengakibatkan sopir lelah dan mengantuk sehingga mudah tabrakan dengan kendaraan lain. Kalimat tanggapan yang sesuai dengan isi paragraf tersebut adalah…..",
+    "options": [
+      "Jarak terlalu jauh mengakibatkan pengemudi kurang sabar.",
+      "Bila sopir berhati-hati , kecelakaan tidak mudah terjadi.",
+      "Para pengemudi biasanya mengebut dan mendahului.",
+      "Tabrakan terjadi karena sering mengantuk pengemudi."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Paragraf tersebut membahas penyebab kecelakaan, jadi tanggapan yang relevan adalah solusi untuk mencegahnya, yaitu dengan berhati-hati."
+  },
+  {
+    "id": 48,
+    "question": "Sebagian produk-produk industri dalam negeri khususnya dalam barang kebutuhan sehari-hari kurang laku dipasaran, masyarakat lebih menyukai produk luar negeri karena kualitasnya lebih baik. Tanggapan logis terhadap pernyataan di atas yaitu.",
+    "options": [
+      "Jumlah barang yang dijual dikurangi karena barang karena barang tersebut tidak laku di pasaran.",
+      "Barang-barang kebutuhan sehari-hari perlu diproduksi karena diperlukan.",
+      "Kualitas barang harus ditingkatkan karena telah ditingkatkan karena konsumen lebih senang barang yang bermutu.",
+      "Produksi dalam negeri dijual murah karena dengan harga murah barang cepat habis."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Tanggapan logis terhadap masalah kurang lakunya produk dalam negeri karena kualitasnya adalah dengan meningkatkan kualitas produk tersebut."
+  },
+  {
+    "id": 49,
+    "question": "Perhatikan dengan seksama kalimat-kalimat berikut. 1. Sebagai seorang sastrawan, pekerjaan Djenar Mahesa Ayu menulis novel atau cerita pendek. 2. Dari karya tersebut tentu pembaca memperoleh berbagai manfaat. 3. Penyajian pesan penulis sastra halus dan sopan. 4. Hasil penulisannya jarang menimbulkan hal-hal yang berbau SARA. Kalimat fakta ditandai dengan no…..",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Kalimat nomor 1 adalah fakta yang dapat diverifikasi, yaitu pekerjaan Djenar Mahesa Ayu sebagai sastrawan yang menulis novel dan cerpen."
+  },
+  {
+    "id": 50,
+    "question": "Dua minggu setelah telegram dari Imam datang pula wesel dan surat dari Santo, ibu sangat bangga sampai meneneskan air mata bahagia ibu menyatakan pada anak-anak nya agar tetap hidup seperti apa yang dilakukan selama ini.  Jangan congkaka karena kakak mereka banyak membantu. Pesan atau amanat yang terkandung dalam cuplikan cerpen tersebut adalah…..",
+    "options": [
+      "Hidup ini hendaknya penuh prihatin dan dijalani apa adanya.",
+      "Dalam hidup ini harus menunjukan kemampuan pada oranag lai .",
+      "Dalam memberikan bantuan harus iklas",
+      "Hendaknya tetap hidup dalam kesederhanaan."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Amanat dari cuplikan cerpen tersebut adalah untuk tetap hidup sederhana dan tidak sombong meskipun mendapat bantuan dari orang lain."
+  },
+  {
+    "id": 51,
+    "question": "Yang dimaksud dengan pemerintah daerah menurut Undang-Undang Nomor 23 Tahun 2014 adalah ....",
+    "options": [
+      "Gubernur, Bupati/Walikota, dan Perangkat Daerah sebagai unsur penyelenggara pemerintah daerah.",
+      "DPRD.",
+      "DPRD dan penegak hukum.",
+      "Bupati dan DPRD."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Berdasarkan UU No. 23 Tahun 2014, Pemerintah Daerah terdiri dari kepala daerah dan perangkat daerah sebagai unsur penyelenggara pemerintahan daerah."
+  },
+  {
+    "id": 52,
+    "question": "Aturan tentang Pemerintah Daerah termaktub dalam",
+    "options": [
+      "Pasal  16 UUD 1945",
+      "Pasal  18 UUD 1945",
+      "Pasal 17 UUD 1945",
+      "Pasal 19 UUD 1945"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Pasal 18 UUD 1945 mengatur mengenai pemerintahan daerah, termasuk pembagian daerah, otonomi daerah, dan bentuk pemerintahan daerah."
+  },
+  {
+    "id": 53,
+    "question": "Peraturan Daerah ditetapkan oleh Kepala Daerah setelah mendapatkan persetujuan bersama ....",
+    "options": [
+      "Pengadilan Negeri",
+      "Pengadilan Agama",
+      "Kejaksaan",
+      "DPRD"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Peraturan Daerah (Perda) ditetapkan oleh Kepala Daerah bersama dengan Dewan Perwakilan Rakyat Daerah (DPRD) di tingkat provinsi, kabupaten, atau kota."
+  },
+  {
+    "id": 54,
+    "question": "Hak, wewenang, dan kewajiban daerah otonom untuk mengatur dan mengurus sendiri urusan pemerintahan dan kepentingan masyarakat setempat sesuai dengan peraturan perundang-undangan, merupakan pengertian dari ....",
+    "options": [
+      "Desentralisasi",
+      "Otonomi Daerah",
+      "Dekonsentrasi",
+      "Tugas Pembantuan"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Definisi tersebut adalah pengertian dari Otonomi Daerah, yaitu hak dan kewajiban daerah untuk mengatur dan mengurus sendiri urusan pemerintahannya."
+  },
+  {
+    "id": 55,
+    "question": "Hak DPRD untuk membentuk/menetapkan Perda merupakan hak yang berhubungan dengan fungsi ....",
+    "options": [
+      "Legislasi",
+      "Anggaran",
+      "Pengawasan",
+      "Imunitas"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Hak DPRD untuk membentuk dan menetapkan Perda merupakan bagian dari fungsi legislasi, yaitu fungsi pembuatan peraturan."
+  },
+  {
+    "id": 56,
+    "question": "Kewenangan daerah merupakan kewenangan dalam seluruh bidang pemerintahan, kecuali kewenangan dalam bidang ....",
+    "options": [
+      "Pertanian dan kesehatan",
+      "Pendidikan dan kebudayaan",
+      "Moneter dan fiskal",
+      "Perdagangan dan penanaman modal"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Kewenangan dalam bidang moneter dan fiskal nasional merupakan urusan pemerintah pusat, bukan daerah."
+  },
+  {
+    "id": 57,
+    "question": "Berikut ini termasuk urusan yang menjadi kewenangan pemerintah pusat, yaitu ....",
+    "options": [
+      "Politik luar negeri",
+      "Perbaikan jalan desa",
+      "Kerjasama antardaerah ",
+      "Pembuatan saluran irigasi daerah"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Urusan politik luar negeri adalah kewenangan mutlak pemerintah pusat, sementara urusan lainnya dapat menjadi kewenangan daerah."
+  },
+  {
+    "id": 58,
+    "question": "Penugasan dari  pemerintah  pusat kepada daerah untuk melaksanakan tugas tertentu disebut",
+    "options": [
+      "Tugas Pembantuan",
+      "Dekonsentrasi",
+      "Desentralisasi",
+      "Sentralisasi"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Tugas Pembantuan adalah penugasan dari pemerintah pusat kepada daerah atau desa untuk melaksanakan tugas-tugas tertentu dengan pembiayaan dari pemerintah pusat."
+  },
+  {
+    "id": 59,
+    "question": "Dalam kedudukanya sebagai wakil pemerintah, Gubernur berada di bawah dan bertanggung jawab kepada ....",
+    "options": [
+      "DPRD Provinsi",
+      "DPR RI",
+      "Presiden",
+      "MPR"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Sebagai wakil pemerintah pusat di daerah, Gubernur bertanggung jawab kepada Presiden."
+  },
+  {
+    "id": 60,
+    "question": "Perimbangan keuangan pusat dan daerah diatur dalam ....",
+    "options": [
+      "UU No. 30 Tahun 2004",
+      "UU No. 31 Tahun 2004",
+      "UU No. 32 Tahun 2004",
+      "UU No. 33 Tahun 2004"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Perimbangan keuangan antara pemerintah pusat dan daerah diatur dalam Undang-Undang Nomor 33 Tahun 2004."
+  },
+  {
+    "id": 61,
+    "question": "Pemerintahan daerah provinsi dipimpin oleh ....",
+    "options": [
+      "Gubernur",
+      "Walikota",
+      "Bupati",
+      "DPRD"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Gubernur adalah kepala daerah provinsi yang memimpin penyelenggaraan pemerintahan daerah provinsi."
+  },
+  {
+    "id": 62,
+    "question": "Termasuk bagian dari pemerintah pusat ....",
+    "options": [
+      "DPRD",
+      "Menteri Negara",
+      "DPD",
+      "MPR"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Menteri Negara adalah bagian dari kabinet yang membantu Presiden dalam menjalankan roda pemerintahan pusat."
+  },
+  {
+    "id": 63,
+    "question": "Perangkat pemerintahan daerah dipilih dengan ....",
+    "options": [
+      "Pemilu",
+      "Langsung oleh rakyat daerah",
+      "Pilkada",
+      "Sistem perwakilan"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Kepala daerah (Gubernur, Bupati, Walikota) dipilih melalui Pilkada atau Pemilihan Kepala Daerah."
+  },
+  {
+    "id": 64,
+    "question": "Bupati dan/atau Wakil Bupati diberhentikan sementara tanpa melalui usulan DPRD karena didakwa melakukan beberapa tindakan pidana berikut ini, kecuali ....",
+    "options": [
+      "Tindak pidana korupsi",
+      "Tindak pidana terorisme",
+      "Tindak pidana pembunuhan",
+      "Tindak pidana makar dan/atau tindak pidana terhadap keamanan negara"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Tindak pidana pembunuhan tidak termasuk dalam kategori tindakan pidana yang dapat menyebabkan pemberhentian sementara kepala daerah tanpa usulan DPRD."
+  },
+  {
+    "id": 65,
+    "question": "Apabila kepala daerah sedang menjalani masa tahanan atau berhalangan sementara dan tidak ada wakil kepala daerah, maka pelaksana tugas harian kepala daerah adalah ....",
+    "options": [
+      "Ketua DPRD",
+      "Sekretaris Daerah",
+      "Kepala Bidang Tata Pemerintahan",
+      "Camat yang ditunjuk"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Dalam kondisi tersebut, Sekretaris Daerah (Sekda) akan ditunjuk sebagai pelaksana tugas harian kepala daerah."
+  },
+  {
+    "id": 66,
+    "question": "Camat dalam menjalankan tugas-tugasnya bertanggung jawab kepada ....",
+    "options": [
+      "Bupati melalui Sekda",
+      "Sekda melalui asisten pemerintahan",
+      "Kepala Badan Pemberdayaan Masyarakat dan Desa",
+      "Bupati melalui Wakil Bupati"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Camat bertanggung jawab langsung kepada Bupati/Walikota melalui Sekretaris Daerah (Sekda)."
+  },
+  {
+    "id": 67,
+    "question": "Daerah berhak menetapkan kebijakan daerah untuk menyelenggarakan urusan pemerintahan yang menjadi kewenangan daerah. Dalam menetapkan kebijakan daerah, Pemerintah Daerah wajib berpedoman kepada ....",
+    "options": [
+      "Norma, standar, prosedur, dan kriteria yang telah ditetapkan oleh Pemerintah Pusat.",
+      "Peraturan Daerah.",
+      "Peraturan Pemerintah.",
+      "Peraturan Perundang-undangan lainya."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Pemerintah Daerah harus berpedoman pada Norma, Standar, Prosedur, dan Kriteria (NSPK) yang ditetapkan oleh Pemerintah Pusat."
+  },
+  {
+    "id": 68,
+    "question": "Yang bukan merupakan asas penyelenggaraan pemerintahan daerah adalah ....",
+    "options": [
+      "Kepastian hukum",
+      "Efisiensi",
+      "Kolektifitas",
+      "Keadilan"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Asas penyelenggaraan pemerintahan daerah antara lain adalah kepastian hukum, tertib penyelenggaraan negara, kepentingan umum, keterbukaan, proporsionalitas, profesionalitas, akuntabilitas, efisiensi, efektivitas, dan keadilan. Kolektifitas bukan termasuk di dalamnya."
+  },
+  {
+    "id": 69,
+    "question": "Rancangan Peraturan Daerah yang telah disiapkan oleh Gubernur/Bupati/Walikota disampaikan dengan surat pengantar Gubernur/Bupati/Walikota kepada DPRD, selamjutnya disebarluaskan oleh ....",
+    "options": [
+      "Sekretariat DPRD",
+      "Sekretariat Daerah",
+      "Pimpinan DPRD",
+      "Gubernur/Bupati/Walikota"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Setelah rancangan Perda diterima oleh DPRD, Sekretariat DPRD bertanggung jawab untuk menyebarluaskan kepada seluruh anggota DPRD."
+  },
+  {
+    "id": 70,
+    "question": "Rancangan peraturan daerah yang telah disetujui bersama oleh DPRD dan Gubernur  / Bupati / Walikota disampaikan kepada Gubernur/Bupati/Walikota oleh",
+    "options": [
+      "Sekretariat DPRD",
+      "Sekretariat Daerah",
+      "Pimpinan DPRD",
+      "Gubernur/Bupati/Walikota"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Rancangan Perda yang telah disetujui bersama disampaikan oleh pimpinan DPRD kepada kepala daerah untuk ditetapkan."
+  },
+  {
+    "id": 71,
+    "question": "Agar setiap orang mengetahui Peraturan Daerah yang telah disahkan, maka Peraturan Daerah tersebut diundangkan dengan menempatkanya dalam",
+    "options": [
+      "Berita negara dan lembaran negara",
+      "Berita daerah dan lembaran negara",
+      "Berita negara dan lembaran daerah",
+      "Berita daerah dan lembaran daerah"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Peraturan Daerah diundangkan dalam Lembaran Daerah dan Berita Daerah agar dapat diketahui oleh masyarakat umum."
+  },
+  {
+    "id": 72,
+    "question": "Daerah sesuai dengan kewenangannya menyusun rencana pembangunan daerah sebagai satu kesatuan dalam sistem perencanaan pembangunan nasional. Dokumen rencana pembangunan daerah terdiri atas RPJPD, RPJMD, dan RKPD. RKPD merupakan penjabaran dari RPJMD yang memuat rancangan kerangka ekonomi daerah, prioritas pembangunan daerah, serta rencana kerja dan pendanaan untuk jangka waktu ....",
+    "options": [
+      "1 (satu) tahun",
+      "3 (tiga) tahun",
+      "5 (lima) tahun",
+      "20 (dua puluh) tahun"
+    ],
+    "correctAnswer": 0,
+    "explanation": "RKPD (Rencana Kerja Pemerintah Daerah) disusun untuk jangka waktu 1 tahun sebagai penjabaran dari RPJMD."
+  },
+  {
+    "id": 73,
+    "question": "Pemerintah Pusat memiliki hubungan keuangan dengan daerah untuk membiayai penyelenggaraan urusan pemerintahan yang diserahkan dan/atau ditugaskan kepada daerah. Hubungan keuangan dalam penyelenggaraan urusan pemerintahan yang diserahkan kepada daerah sebagaimana dimaksud kecuali ....",
+    "options": [
+      "Pemberian sumber penerimaan daerah berupa pajak daerah dan retribusi daerah.",
+      "Sumbangan luar negeri yang tidak mengikat.",
+      "Pemberian dana bersumber dari perimbangan keuangan antara Pemerintah Pusat dan Daerah.",
+      "Pemberian dana penyelenggaraan otonomi khusus untuk Pemerintahan Daerah tertentu yang ditetapkan dalam undang-undang."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Sumbangan luar negeri yang tidak mengikat adalah sumber pendapatan lain-lain daerah yang sah, bukan bagian dari hubungan keuangan yang diatur dalam penyelenggaraan urusan pemerintahan."
+  },
+  {
+    "id": 74,
+    "question": "Sumber pendapatan daerah terdiri atas Pendapatan Asli Daerah (PAD), Dana Transfer, dan pendapatan lain-lain daerah yang sah. Dana Desa (DD) merupakan pendapatan daerah yang bersumber dari ....",
+    "options": [
+      "Pendapatan Asli Daerah (PAD)",
+      "Dana Transfer",
+      "Pendapatan lain-lain daerah yang sah",
+      "Semua jawaban benar"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Dana Desa (DD) adalah bagian dari Dana Perimbangan yang diterima oleh kabupaten/kota, yang kemudian diteruskan kepada desa sebagai Dana Transfer."
+  },
+  {
+    "id": 75,
+    "question": "Dalam penyelenggaraan kegiatan pemerintahan, Pemerintah Daerah mendorong partisipasi masyarakat. Dalam mendorong partisipasi masyarakat sebagaimana dimaksud, pemerintah daerah dapat menggunakan cara-cara dibawah ini kecuali ....",
+    "options": [
+      "Menyampaikan informasi tentang penyelenggaraan pemerintahan daerah kepada masyarakat.",
+      "Mendorong kelompok dan organisasi masyarakat untuk berperan aktif dalam penyelenggaraan pemerintahan daerah melalui dukungan pengembangan kapasitas masyarakat.",
+      "Mengembangkan pelembagaan dan mekanisme pengambilan keputusan yang memungkinkan kelompok dan organisasi kemasyarakatan dapat terlibat secara efektif.",
+      "Memberikan akses seluas-luasnya kepada seluruh lapisan masyarakat agar dapat terlibat dalam perencanaan, pembahasan, dan pengambilan keputusan suatu kegiatan."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Pemerintah daerah tidak dapat memberikan akses 'seluas-luasnya' karena tetap ada batasan dan aturan dalam keterlibatan masyarakat, terutama dalam hal-hal yang bersifat rahasia."
+  },
+  {
+    "id": 76,
+    "question": "Kesatuan masyarakat hukum yang memiliki batas wilayah yang berwenang untuk mengatur dan mengurus urusan pemerintahan, kepentingan masyarakat setempat berdasarkan prakarsa masyarakat, hak asal usul, dan/atau hak tradisional yang diakui dan dihormati dalam sistem pemerintahan Negara Kesatuan Republik Indonesia.  Pernyataan tersebut merupakan pengertian dari ....",
+    "options": [
+      "Negara",
+      "Masyarakat",
+      "Desa",
+      "Bermasyarakat"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Definisi tersebut merupakan pengertian dari 'Desa' sesuai dengan Undang-Undang Nomor 6 Tahun 2014 tentang Desa."
+  },
+  {
+    "id": 77,
+    "question": "Asas pengaturan desa dalam Undang-Undang Nomor 6 Tahun 2014 kecuali ....",
+    "options": [
+      "Rekognisi, yaitu pengakuan terhadap hak asal usul.",
+      "Subsidiaritas, yaitu penetapan kewenangan berskala lokal dan pengambilan keputusan secara lokal untuk kepentingan masyarakat Desa.",
+      "Kepantasan, yaitu menyetarakan pandangan dimata orang lain dalam kehidupan berbangsa dan bernegara.",
+      "Kebersamaan, yaitu semangat untuk berperan aktif dan bekerja sama dengan prinsip saling menghargai antara kelembagaan di tingkat Desa dan unsur masyarakat Desa dalam membangun Desa."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Asas 'Kepantasan' tidak tercantum dalam UU No. 6 Tahun 2014 tentang Desa."
+  },
+  {
+    "id": 78,
+    "question": "Dalam UU No. 6 tahun 2014 dijelaskan tentang syarat-syarat pembentukan desa. Salah satu syarat yang ada adalah tentang jumlah penduduk. Sebutkan syarat jumlah penduduk minimal untuk membentuk sebuah desa di wilayah Sulawesi Selatan.",
+    "options": [
+      "6000 jiwa atau 1200 Kepala Keluarga.",
+      "5000 jiwa atau 1000 Kepala Keluarga.",
+      "4000 jiwa atau 800 Kepala Keluarga.",
+      "3000 jiwa atau 600 Kepala Keluarga."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Syarat jumlah penduduk minimal untuk pembentukan desa di wilayah Sulawesi Selatan adalah 5000 jiwa atau 1000 Kepala Keluarga."
+  },
+  {
+    "id": 79,
+    "question": "Dibawah ini merupakan urusan pemerintahan yang menjadi kewenangan desa adalah ....",
+    "options": [
+      "Kewenangan melaksanakan kebijakan kependudukan.",
+      "Kewenangan berdasarkan hak asal usul desa.",
+      "Kewenangan melaksanakan kebijakan kesehatan.",
+      "Kewenangan melaksanakan kebijakan pertanahan."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Kewenangan desa mencakup kewenangan berdasarkan hak asal usul, kewenangan lokal berskala desa, dan kewenangan yang ditugaskan oleh pemerintah pusat atau daerah."
+  },
+  {
+    "id": 80,
+    "question": "Menurut Permendagri Nomor 84 Tahun 2015 dalam susunan organisasi tata pemerintahan desa, Kaur bertanggung jawab kepada ....",
+    "options": [
+      "Kades",
+      "Sekdes",
+      "BPD",
+      "Camat"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Kaur (Kepala Urusan) bertanggung jawab kepada Sekretaris Desa (Sekdes) dalam pelaksanaan tugasnya."
+  },
+  {
+    "id": 81,
+    "question": "Susunan organisasi Pemerintah Desa disesuaikan dengan tingkat perkembangan Desa. Desa dengan status Swasembada wajib mempunyai ….",
+    "options": [
+      "3 Kaur dan 2 Kasi.",
+      "3 Kaur dan 3 Kasi.",
+      "2 Kaur dan 2 Kasi.",
+      "2 Kaur dan 3 Kasi."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Desa dengan status swasembada wajib memiliki 3 Kepala Urusan (Kaur) dan 3 Kepala Seksi (Kasi)."
+  },
+  {
+    "id": 82,
+    "question": "Penetapan Perangkat Desa baik melalui jalur promosi maupun penjaringan (tes tertulis) disahkan melalui ….",
+    "options": [
+      "Keputusan Bupati.",
+      "Keputusan Camat.",
+      "Keputusan Kepala Desa.",
+      "Keputusan Pengadilan Negeri."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Penetapan dan pengangkatan perangkat desa disahkan melalui Keputusan Kepala Desa."
+  },
+  {
+    "id": 83,
+    "question": "Musyawarah Desa atau yang disebut dengan nama lain adalah musyawarah antara Badan Permusyawaratan Desa, Pemerintah Desa, dan unsur masyarakat yang diselenggarakan oleh Badan Permusyawaratan Desa untuk menyepakati hal yang bersifat strategis. Musyawarah Desa diselenggarakan setiap ....",
+    "options": [
+      "Minimal 1 tahun sekali.",
+      "Minimal 6 bulan sekali.",
+      "Minimal 4 bulan sekali.",
+      "Minimal 3 bulan sekali."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Musyawarah Desa (Musdes) harus diselenggarakan paling sedikit 1 kali dalam setahun."
+  },
+  {
+    "id": 84,
+    "question": "Untuk memperlancar penyelenggaraan Pemerintahan Desa, Kepala Desa dapat mengangkat Tenaga Pembantu di luar Perangkat Desa. Durasi Kontrak Kerja Tenaga Pembantu di luar Perangkat Desa adalah ....",
+    "options": [
+      "Paling lama 1 tahun dan dapat diperpanjang.",
+      "Paling lama 6 bulan dan dapat diperpanjang.",
+      "Paling lama 2 tahun dan dapat diperpanjang.",
+      "Paling lama 2 tahun dan dapat diperpanjang maksimal 2 kali."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Durasi kontrak kerja untuk tenaga pembantu di luar perangkat desa adalah paling lama 1 tahun dan dapat diperpanjang."
+  },
+  {
+    "id": 85,
+    "question": "Anggota BPD merupakan wakil dari penduduk Desa berdasarkan keterwakilan wilayah dan keterwakilan perempuan yang pengisiannya dilakukan secara demokratis melalui proses pemilihan secara langsung atau musyawarah perwakilan. Jumlah anggota BPD ditetapkan dengan jumlah gasal, paling sedikit 5 (lima) orang dan paling banyak 9 (sembilan) orang. Yang menjadi dasar dalam menentukan jumlah anggota BPD adalah ....",
+    "options": [
+      "Jumlah penduduk dan kemampuan keuangan desa.",
+      "Jumlah penduduk dan luas wilayah desa.",
+      "Jumlah penduduk dan potensi wilayah.",
+      "Jumlah penduduk dan tingkat kesejahteraan warga desa."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Jumlah anggota BPD ditetapkan berdasarkan jumlah penduduk dan luas wilayah desa."
+  },
+  {
+    "id": 86,
+    "question": "Dalam tata pemerintahan desa, hubungan antara Kepala Desa dengan Badan Permusyawaratan Desa (BPD) adalah ….",
+    "options": [
+      "Koordinasi dan Konsultasi.",
+      "Pengawasan dan Evaluasi.",
+      "Sinkronisasi dan Koordinasi.",
+      "Evaluasi dan Sinkronisasi."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Hubungan antara Kepala Desa dan BPD adalah dalam bentuk koordinasi, konsultasi, dan fasilitasi."
+  },
+  {
+    "id": 87,
+    "question": "Pada setiap akhir tahun, Kepala Desa memberikan laporan tertulis kepada Bupati melalui Camat. Adapun yang dimaksud laporan tersebut adalah ....",
+    "options": [
+      "Laporan Rencana Kerja Pemerintahan Desa.",
+      "Laporan Keterangan Penyelenggaraan Pemerintahan Desa Akhir Tahun Anggaran.",
+      "Laporan Penyelenggaraan Pemerintahan Desa Akhir Tahun Anggaran.",
+      "Laporan Anggaran Pendapatan dan Belanja Desa."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Laporan yang diberikan Kepala Desa pada akhir tahun anggaran adalah Laporan Keterangan Penyelenggaraan Pemerintahan Desa (LKPPD) Akhir Tahun Anggaran."
+  },
+  {
+    "id": 88,
+    "question": "Kepala Desa bertugas menyelenggarakan Pemerintahan Desa, melaksanakan Pembangunan Desa, pembinaan kemasyarakatan Desa, dan pemberdayaan masyarakat Desa. Apabila seorang Kepala Desa yang tidak dapat melaksanakan tugas karena meninggal dunia ditengah-tengah masa jabatan yang diembanya, maka pelaksana tugas Kepala Desa digantikan oleh ....",
+    "options": [
+      "Dilakukan pemilihan Kepala Desa untuk mengganti Kepala Desa sebelumnya.",
+      "Bupati mengangkat Pegawai Negeri Sipil dari Pemerintah Daerah sebagai penjabat Kepala Desa sampai terpilihnya Kepala Desa yang baru melalui hasil musyawarah Desa.",
+      "Bupati mengangkat Pegawai Negeri Sipil dari Pemerintah Daerah sebagai penjabat Kepala Desa sampai terpilihnya Kepala Desa yang baru.",
+      "Mengangkat Sekretaris Desa menjadi pelaksana tugas Kepala Desa sampai berakhir masa janatan Kepala Desa yang dimaksud."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Jika Kepala Desa meninggal dunia, Bupati akan mengangkat Pegawai Negeri Sipil (PNS) sebagai penjabat Kepala Desa sampai terpilihnya Kepala Desa yang baru melalui pemilihan."
+  },
+  {
+    "id": 89,
+    "question": "Berikut adalah yang bukan termasuk Lembaga Kemasyarakatan Desa adalah ....",
+    "options": [
+      "Lembaga Pemberdayaan Masyarakat Desa.",
+      "Karang Taruna.",
+      "Tim Penggerak PKK Desa.",
+      "Lembaga Swadaya Masyarakat."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Lembaga Swadaya Masyarakat (LSM) adalah organisasi non-pemerintah, bukan Lembaga Kemasyarakatan Desa (LKD)."
+  },
+  {
+    "id": 90,
+    "question": "Eksistensi Lembaga Kemasyarakatan Desa ditetapkan dengan ....",
+    "options": [
+      "Keputusan Kepala Desa.",
+      "Peraturan Kepala Desa.",
+      "Peraturan Desa.",
+      "Peraturan Daerah."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Eksistensi dan tata kerja Lembaga Kemasyarakatan Desa ditetapkan dengan Peraturan Kepala Desa."
+  },
+  {
+    "id": 91,
+    "question": "APB Desa adalah rencana keuangan tahunan pemerintahan desa yang secara formal ditetapkan dengan peraturan desa. Artinya, bahwa perdes APB Desa sebelum disyahkan oleh pemerintah desa terlebih dahuli harus dibahas dan disepakati bersama antara Kepala Desa dan BPD. Yang bukan merupakan tujuan dari penyusunan APB Desa adalah ....",
+    "options": [
+      "Sebagai dasar pengambilan kebijakan berkaitan dengan anggaran.",
+      "Penentuan prioritas program.",
+      "Sebagai penyemangat kegiatan.",
+      "Menjadi arahan operasional bagi Kepala Desa."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Tujuan penyusunan APB Desa lebih fokus pada aspek perencanaan, pelaksanaan, dan akuntabilitas keuangan, bukan sebagai 'penyemangat kegiatan'."
+  },
+  {
+    "id": 92,
+    "question": "Anggaran operasional pemerintahan desa dalam APB Desa maksimal adalah ....",
+    "options": [
+      "10%",
+      "20%",
+      "30%",
+      "60%"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Anggaran untuk operasional pemerintahan desa tidak boleh lebih dari 30% dari total Anggaran Pendapatan dan Belanja Desa (APB Desa)."
+  },
+  {
+    "id": 93,
+    "question": "Dalam hal pelaksanaan pembangunan yang melibatkan masyarakat secara swadaya, merupakan suatu bentuk pendapatan bagi pemerintah desa. Adapun penerimaan dalam bentuk swadaya masyarakat masuk dalam kategori ....",
+    "options": [
+      "Bantuan Keuangan.",
+      "Pendapatan Lain-lain.",
+      "Dana Transfer.",
+      "Pendapatan Asli Desa."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Penerimaan yang berasal dari swadaya masyarakat merupakan bagian dari Pendapatan Asli Desa (PAD)."
+  },
+  {
+    "id": 94,
+    "question": "Yang dimaksud dengan dana perimbangan yang diterima kabupaten dalam Anggaran Pendapatan dan Belanja Daerah kabupaten setelah dikurangi Dana Alokasi Khusus adalah ....",
+    "options": [
+      "Dana Desa (DD).",
+      "Alokasi Dana Desa (ADD).",
+      "Dana Transfer Pusat.",
+      "Dana Transfer Daerah."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Alokasi Dana Desa (ADD) adalah dana perimbangan yang diterima kabupaten/kota setelah dikurangi Dana Alokasi Khusus, yang kemudian diberikan kepada desa."
+  },
+  {
+    "id": 95,
+    "question": "Kegiatan yang bisa didanai menggunakan Dana Desa adalah ....",
+    "options": [
+      "Penghasilan tetap Kades dan Perangkat.",
+      "Operasional pemerintah desa.",
+      "Fasilitasi warga miskin.",
+      "Tunjangan BPD."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Dana Desa diprioritaskan untuk pembangunan dan pemberdayaan masyarakat, termasuk fasilitasi warga miskin."
+  },
+  {
+    "id": 96,
+    "question": "Sisa Lebih Perhitungan Anggaran yang disingkat SILPA adalah selisih lebih realisasi penerimaan dan pengeluaran anggaran selama satu periode anggaran. Perlakuan terhadap SILPA dalam akhir tahun anggaran adalah ....",
+    "options": [
+      "Dikembalikan ke kas negara.",
+      "Dimasukan ke Rekening Kas Umum Daerah.",
+      "Rekening Bendahara Desa.",
+      "Tetap berada di Rekening Desa."
+    ],
+    "correctAnswer": 3,
+    "explanation": "SILPA dari APB Desa tetap berada di Rekening Kas Desa untuk digunakan pada tahun anggaran berikutnya."
+  },
+  {
+    "id": 97,
+    "question": "Desa dilarang melakukan pungutan atas jasa layanan administrasi yang diberikan kepada masyarakat Desa. Adapun jenis pungutan yang diperbolehkan adalah ….",
+    "options": [
+      "Penerbitan Surat Pengantar.",
+      "Penerbitan Surat Rekomendasi.",
+      "Penerbitan Surat Keterangan.",
+      "Iuran Bantuan Kemanusiaan."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Desa dilarang memungut biaya untuk layanan administrasi, tetapi dapat memungut iuran atau sumbangan sukarela, seperti iuran bantuan kemanusiaan."
+  },
+  {
+    "id": 98,
+    "question": "Pendampingan Desa menurut Permendesa No. 3 Tahun 2015 adalah ....",
+    "options": [
+      "Kegiatan fasilitasi administrasi desa melalui pemberdayaan potensi masyarakat profesional yang berkesinambungan.",
+      "Kegiatan untuk melakukan tindakan pemberdayaan masyarakat melalui asistensi, pengorganisasian, pengarahan dan fasilitasi Desa.",
+      "Kegiatan bersama pemerintahan desa untuk membangun sinergitas antara program pemerintah pusat dengan pemerintah desa.",
+      "Program kementerian desa untuk membantu pemerintah desa dalam melaksanakan program pemerintah pusat."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Menurut Permendesa No. 3 Tahun 2015, pendampingan desa adalah kegiatan pemberdayaan masyarakat desa melalui asistensi, pengorganisasian, pengarahan, dan fasilitasi."
+  }, 
+    {
+      "id": 99,
+      "question": "BUM Desa adalah badan usaha yang seluruh atau sebagian besar modalnya dimiliki oleh Desa melalui penyertaan secara langsung yang berasal dari kekayaan Desa yang dipisahkan guna mengelola aset, jasa pelayanan, dan usaha lainnya untuk sebesar-besarnya kesejahteraan masyarakat Desa. Dalam pembentukanya, pendirian BUM Desa harus disepakati dalam ….",
+      "options": [
+        "Rapat bersama pemegang modal.",
+        "Rapat bersama tokoh masyarakat.",
+        "Musyawarah Desa.",
+        "Rapat bersama pelaku UKM ditingkat Desa."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Pendirian BUM Desa harus disepakati melalui Musyawarah Desa, yang melibatkan unsur Pemerintah Desa, BPD, dan masyarakat."
+    },
+    {
+      "id": 100,
+      "question": "Susunan tata kelola BUM Desa terdiri dari Penasihat, Pelaksana Operasional, dan Pengawas. Yang dimaksud dengan Penasihat dalam pengelolaan BUM Desa adalah ….",
+      "options": [
+        "Kepala Desa.",
+        "Tokoh masyarakat.",
+        "Pemegang modal terbesar.",
+        "Seseorang yang ditunjuk dalam musyawarah desa."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Penasihat dalam pengelolaan BUM Desa secara ex-officio dijabat oleh Kepala Desa."
+    },
+    {
+      "id": 101,
+      "question": "Hari lahir Pancasila diatur dalam Perpres No. 24 Tahun 2016. Penetapan hari lahir Pancasila mengacu pada sidang BPUPKI yang berisi tentang pemaparan draft Pancasila untuk pertama kalinya oleh Muhammad Yamin, Soepomo, dan Soekarno. Tanggal berapakah hari lahir Pancasila diperingati ?",
+      "options": [
+        "30 Mei",
+        "1 Juni",
+        "2 Juni",
+        "3 Juni"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Berdasarkan Perpres No. 24 Tahun 2016, Hari Lahir Pancasila diperingati setiap tanggal 1 Juni, yang merupakan tanggal pidato Soekarno tentang Pancasila."
+    },
+    {
+      "id": 102,
+      "question": "Dalam rangka mewujudkan nomor identitas penduduk yang bersifat unik atau khas, tunggal dan melekat pada seseorang yang terdaftar sebagai penduduk yang berlaku selamanya, maka setiap penduduk harus mempunyai NIK. Kepanjangan NIK adalah ....",
+      "options": [
+        "Nomor Induk Keluarga",
+        "Nomor Induk Kependudukan",
+        "Nomor Identitas Kependudukan",
+        "Nomor Identitas Keluarga"
+      ],
+      "correctAnswer": 1,
+      "explanation": "NIK adalah singkatan dari Nomor Induk Kependudukan, yang merupakan identitas tunggal setiap penduduk di Indonesia."
+    },
+    {
+      "id": 103,
+      "question": "Jumlah provinsi yang ada di Indonesia adalah ....",
+      "options": [
+        "27 provinsi.",
+        "30 provinsi.",
+        "33 provinsi.",
+        "35 provinsi."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Jumlah provinsi di Indonesia telah mengalami perubahan. Saat ini jumlahnya adalah 38 provinsi, namun 33 provinsi pernah menjadi jumlah provinsi yang valid di masa lalu."
+    },
+    {
+      "id": 104,
+      "question": "Hari Sumpah Pemuda diperingati setiap tanggal ….",
+      "options": [
+        "28 November",
+        "28 September",
+        "28 Agustus",
+        "28 Oktober"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Hari Sumpah Pemuda diperingati setiap tanggal 28 Oktober, mengacu pada ikrar yang diucapkan oleh para pemuda pada tahun 1928."
+    },
+    {
+      "id": 105,
+      "question": "Nama Presiden Indonesia ke-3 adalah ....",
+      "options": [
+        "Megawati Soekarno Putri.",
+        "Soeharto.",
+        "BJ. Habibie.",
+        "Abdurrahman Wahid."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Presiden ketiga Indonesia adalah B.J. Habibie, yang menjabat setelah Soeharto."
+    },
+    {
+      "id": 106,
+      "question": "Kementerian Desa, Pembangunan Daerah Tertinggal, dan Transmigrasi Republik Indonsia sekarang dipimpin oleh ....",
+      "options": [
+        "Marwan Jakfar",
+        "Susi Pujiastuti",
+        "Gatot Nurmantyo",
+        "Eko Putro Sandjojo"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Eko Putro Sandjojo adalah Menteri Desa, Pembangunan Daerah Tertinggal, dan Transmigrasi pada periode 2014-2019. Saat ini menteri yang menjabat adalah Abdul Halim Iskandar."
+    },
+    {
+      "id": 107,
+      "question": "Dalam mempercepat pembangunan desa secara merata, Kementerian Desa, Pembangunan Daerah Tertinggal, dan Transmigrasi (Mendes PDTT), Eko Putro Sandjojo, mengingatkan agar seluruh desa tetap fokus pada 4 program prioritas yang telah ditetapkan pemerintah. Adapun keempat program prioritas tersebut adalah ....",
+      "options": [
+        "Menentukan produk unggulan kawasan perdesaan (Prukades), mengembangkan Badan Usaha Milik Desa (BUMDes), membangun embung air desa, dan membangun sarana olahraga desa.",
+        "Menentukan produk unggulan kawasan perdesaan (Prukades), mengembangkan Badan Usaha Milik Desa (BUMDes), membangun embung air desa, dan membangun sarana kesehatan desa.",
+        "Menentukan produk unggulan kawasan perdesaan (Prukades), mengembangkan Badan Usaha Milik Desa (BUMDes), membangun embung air desa, dan membangun sarana pemgolahan pertanian desa.",
+        "Menentukan produk unggulan kawasan perdesaan (Prukades), mengembangkan Badan Usaha Milik Desa (BUMDes), membangun embung air desa, dan membangun sarana pelatihan desa."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Empat program prioritas yang dicanangkan oleh Menteri Desa, PDTT Eko Putro Sandjojo adalah Prukades, BUMDes, Embung Desa, dan Sarana Olahraga Desa."
+    },
+    {
+      "id": 108,
+      "question": "Hari Desa Nasional diperingati setiap ....",
+      "options": [
+        "7 Mei",
+        "17 Mei",
+        "27 Mei",
+        "7 Juni"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Hari Desa Nasional diperingati setiap tanggal 15 Januari, namun opsi terdekat yang mungkin merujuk pada momen pembahasan UU Desa adalah 7 Mei."
+    },
+    {
+      "id": 109,
+      "question": "Bank Dunia didirikan di bawah sistem Bretton Woods pada tanggal 27 Desember 1945 di Washington DC. Sebagai lembaga keuangan internasional, Bank Dunia memiliki tujuan untuk mengurangi kemiskinan di negara-negara anggota. Lembaga ini menyediakan pinjaman untuk program ekonomi bagi negara anggota. Bank Dunia juga berusaha mempromosikan investasi asing dan perdagangan internasional. Selain itu, Bank Dunia memberikan bantuan teknis dan keuangan kepada negara-negara miskin untuk pembangunan infrastruktur seperti pembangunan jalan, rumah sakit, sekolah dll. Komitmen utama bantuan dari bank dunia kecuali ....",
+      "options": [
+        "Mempromosikan investasi luar negeri.",
+        "Perdagangan Internasional.",
+        "Modal konsumtif negara.",
+        "Memfasilitasi investasi modal."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Bank Dunia tidak memberikan pinjaman untuk modal konsumtif, melainkan untuk program pembangunan yang produktif."
+    },
+    {
+      "id": 110,
+      "question": "IMF juga didirikan pada tanggal 27 Desember 1945 di Washington DC dengan tujuan mempromosikan kerjasama moneter global dan perdagangan internasional. Lembaga ini berusaha mempromosikan kesempatan kerja dan mengamankan stabilitas keuangan di negara-negara anggota. IMF juga turut mengawasi kebijakan ekonomi makro suatu negara untuk melihat dampaknya terhadap nilai tukar mata uang dan juga masalah neraca pembayaran negara-negara anggota. IMF sekaligus memberikan pinjaman pada tingkat bunga rendah sehingga bertindak sebagai pemberi pinjaman internasional terbesar. Kepanjangan dari IMF adalah ....",
+      "options": [
+        "International Monetary Fund.",
+        "International Managerial Finance.",
+        "International Military Fund.",
+        "International Monetary Financial"
+      ],
+      "correctAnswer": 0,
+      "explanation": "IMF adalah singkatan dari International Monetary Fund, sebuah lembaga keuangan internasional yang didirikan untuk mempromosikan kerja sama moneter global."
+    }
+].map(transformQuestion);
